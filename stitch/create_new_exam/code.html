@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7B7BFF",
+                        "surface": "#111113",
+                        "border-dim": "#242428",
+                        "text-dim": "#55555F",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0C0C0E",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-slider::-webkit-slider-runnable-track {
+            background: #1A1A1D;
+            height: 6px;
+            border-radius: 3px;
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2px solid #7B7BFF;
+            margin-top: -6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-surface border-r border-border-dim hidden lg:flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight">AnswerCheck</h1>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined text-fill">description</span>
+<span class="text-sm font-medium">Exams</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white rounded-lg" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-text-dim hover:text-white rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-border-dim">
+<div class="flex items-center gap-3 px-2">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center" data-alt="User avatar icon">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-semibold truncate">Dr. Aris Thorne</p>
+<p class="text-[10px] text-text-dim truncate">Academic Lead</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto relative bg-[#0C0C0E]">
+<!-- Top Bar -->
+<header class="sticky top-0 z-10 bg-surface/80 backdrop-blur-md border-b border-border-dim px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-border-dim transition-colors text-text-dim">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<h2 class="text-[18px] font-semibold">New Exam</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-bold uppercase tracking-wider">Draft</span>
+</div>
+</header>
+<div class="max-w-[680px] mx-auto px-6 py-10 pb-32">
+<!-- Section: BASICS -->
+<section class="mb-12">
+<div class="flex items-center gap-3 mb-6">
+<span class="text-[11px] font-bold text-text-dim tracking-widest uppercase">Basics</span>
+<div class="flex-1 h-[1px] bg-[#1A1A1D]"></div>
+</div>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-300">Exam Title</label>
+<input class="w-full bg-surface border border-border-dim rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-slate-100 placeholder:text-text-dim" placeholder="e.g. Mid-term Biology 2024" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-300">Subject</label>
+<select class="w-full bg-surface border border-border-dim rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-slate-100">
+<option>Select subject</option>
+<option>Mathematics</option>
+<option>Biology</option>
+<option>Physics</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-300">Date</label>
+<div class="relative">
+<input class="w-full bg-surface border border-border-dim rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-slate-100" placeholder="YYYY-MM-DD" type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-dim">calendar_today</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: GRADING -->
+<section class="mb-12">
+<div class="flex items-center gap-3 mb-6">
+<span class="text-[11px] font-bold text-text-dim tracking-widest uppercase">Grading</span>
+<div class="flex-1 h-[1px] bg-[#1A1A1D]"></div>
+</div>
+<div class="bg-surface border border-border-dim rounded-xl p-6 space-y-8">
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-xs font-semibold text-text-dim uppercase tracking-wider">Strictness</span>
+<span class="text-sm font-bold text-primary px-3 py-1 bg-primary/10 rounded-full">Balanced</span>
+</div>
+<input class="w-full appearance-none bg-transparent custom-slider" max="100" min="0" type="range" value="50"/>
+<div class="flex justify-between text-[11px] text-text-dim font-medium uppercase">
+<span>Lenient</span>
+<span>Strict</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-border-dim">
+<div class="space-y-1">
+<p class="text-sm font-semibold">Allow partial marks</p>
+<p class="text-xs text-text-dim">Give credit for steps or partially correct answers</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-[#1A1A1D] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: ANSWER KEY -->
+<section class="mb-12">
+<div class="flex items-center gap-3 mb-6">
+<span class="text-[11px] font-bold text-text-dim tracking-widest uppercase">Answer Key</span>
+<div class="flex-1 h-[1px] bg-[#1A1A1D]"></div>
+</div>
+<!-- Upload Zone -->
+<div class="border-2 border-dashed border-[#242428] hover:border-primary bg-surface/50 rounded-xl p-8 flex flex-col items-center justify-center transition-colors cursor-pointer group mb-8">
+<div class="w-12 h-12 rounded-full bg-[#1A1A1D] flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[24px] text-primary">upload_file</span>
+</div>
+<p class="text-sm font-semibold mb-1">Upload Answer Key PDF</p>
+<p class="text-xs text-text-dim">Drag and drop or click to browse files</p>
+</div>
+<!-- Question Config Table -->
+<div class="bg-surface border border-border-dim rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#1A1A1D]">
+<th class="px-4 py-3 text-[11px] font-bold text-text-dim uppercase tracking-wider">Q#</th>
+<th class="px-4 py-3 text-[11px] font-bold text-text-dim uppercase tracking-wider">Max Marks</th>
+<th class="px-4 py-3 text-[11px] font-bold text-text-dim uppercase tracking-wider">Answer Type</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dim">
+<tr>
+<td class="px-4 py-4 text-sm font-medium">01</td>
+<td class="px-4 py-4">
+<input class="w-16 bg-[#1A1A1D] border-none rounded text-sm px-2 py-1 outline-none text-center" type="number" value="5"/>
+</td>
+<td class="px-4 py-4">
+<div class="inline-flex bg-[#1A1A1D] p-1 rounded-lg">
+<button class="px-3 py-1 text-[10px] font-bold bg-primary text-white rounded-md">TEXT</button>
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">MATH</button>
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">DIAGRAM</button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 text-sm font-medium">02</td>
+<td class="px-4 py-4">
+<input class="w-16 bg-[#1A1A1D] border-none rounded text-sm px-2 py-1 outline-none text-center" type="number" value="10"/>
+</td>
+<td class="px-4 py-4">
+<div class="inline-flex bg-[#1A1A1D] p-1 rounded-lg">
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">TEXT</button>
+<button class="px-3 py-1 text-[10px] font-bold bg-primary text-white rounded-md">MATH</button>
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">DIAGRAM</button>
+</div>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 text-sm font-medium">03</td>
+<td class="px-4 py-4">
+<input class="w-16 bg-[#1A1A1D] border-none rounded text-sm px-2 py-1 outline-none text-center" type="number" value="15"/>
+</td>
+<td class="px-4 py-4">
+<div class="inline-flex bg-[#1A1A1D] p-1 rounded-lg">
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">TEXT</button>
+<button class="px-3 py-1 text-[10px] font-bold text-text-dim hover:text-slate-300">MATH</button>
+<button class="px-3 py-1 text-[10px] font-bold bg-primary text-white rounded-md">DIAGRAM</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-4 bg-surface flex justify-center border-t border-border-dim">
+<button class="text-primary text-sm font-bold flex items-center gap-2 hover:bg-primary/5 px-4 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                Add Question
+                            </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Bar -->
+<footer class="fixed bottom-0 left-0 lg:left-64 right-0 bg-surface/95 backdrop-blur-xl border-t border-border-dim px-6 py-4 flex items-center justify-end gap-4 z-20">
+<button class="px-6 py-2.5 text-sm font-bold text-text-dim hover:text-slate-200 transition-colors">
+                    Cancel
+                </button>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 transition-all">
+                    Create Exam
+                </button>
+</footer>
+</main>
+</div>
+</body></html>

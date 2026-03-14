@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7B7BFF",
+                        "base-dark": "#0C0C0E",
+                        "surface-dark": "#111113",
+                        "border-dark": "#242428",
+                        "text-main": "#F0F0F0",
+                        "text-muted": "#9090A0",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0C0C0E",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .grain-bg {
+            position: relative;
+        }
+        .grain-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<main class="flex min-h-screen w-full">
+<!-- Left Panel: 45% Base bg with Grain -->
+<section class="relative hidden lg:flex w-[45%] bg-base-dark grain-bg flex-col justify-center px-16 border-r border-border-dark">
+<div class="relative z-10 space-y-12">
+<!-- Brand -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-primary flex items-center justify-center rounded">
+<span class="text-white font-bold text-lg">A</span>
+</div>
+<span class="text-text-main text-[18px] font-bold tracking-tight">AnswerCheck</span>
+</div>
+<!-- Content -->
+<div class="space-y-4">
+<h1 class="text-text-main text-4xl font-bold leading-tight">Grading, reimagined.</h1>
+<p class="text-text-muted text-sm leading-relaxed max-w-md">
+                        Handwriting OCR, AI evaluation, and dispute resolution — built for modern classrooms.
+                    </p>
+</div>
+<!-- Feature Rows -->
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white">memory</span>
+</div>
+<span class="text-text-muted text-[13px]">Handwriting OCR with classifier routing</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white">key</span>
+</div>
+<span class="text-text-muted text-[13px]">Answer-key anchored grading only</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-4 h-4 bg-primary rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-white">forum</span>
+</div>
+<span class="text-text-muted text-[13px]">Student dispute resolution built in</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: 55% Surface bg -->
+<section class="flex-1 bg-surface-dark flex items-center justify-center px-8">
+<div class="w-full max-w-[360px] space-y-6">
+<!-- Mobile Branding (Visible only on small screens) -->
+<div class="lg:hidden flex items-center gap-3 mb-8">
+<div class="w-8 h-8 bg-primary flex items-center justify-center rounded">
+<span class="text-white font-bold text-lg">A</span>
+</div>
+<span class="text-text-main text-[18px] font-bold tracking-tight">AnswerCheck</span>
+</div>
+<div>
+<h2 class="text-text-muted text-sm font-normal mb-6">Continue as</h2>
+<div class="space-y-3">
+<!-- Admin Card -->
+<button class="w-full flex items-center gap-4 p-4 bg-base-dark border border-border-dark rounded-lg hover:border-[#3B3B42] transition-colors text-left group">
+<div class="w-10 h-10 flex items-center justify-center rounded bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+</div>
+<div>
+<p class="text-text-main font-semibold text-sm">Admin</p>
+<p class="text-text-muted text-[12px]">Manage teachers &amp; classes</p>
+</div>
+</button>
+<!-- Teacher Card -->
+<button class="w-full flex items-center gap-4 p-4 bg-base-dark border border-border-dark rounded-lg hover:border-[#3B3B42] transition-colors text-left group">
+<div class="w-10 h-10 flex items-center justify-center rounded bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div>
+<p class="text-text-main font-semibold text-sm">Teacher</p>
+<p class="text-text-muted text-[12px]">Create exams &amp; grade</p>
+</div>
+</button>
+<!-- Student Card -->
+<button class="w-full flex items-center gap-4 p-4 bg-base-dark border border-border-dark rounded-lg hover:border-[#3B3B42] transition-colors text-left group">
+<div class="w-10 h-10 flex items-center justify-center rounded bg-primary/10 border border-primary/20 text-primary group-hover:bg-primary group-hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<div>
+<p class="text-text-main font-semibold text-sm">Student</p>
+<p class="text-text-muted text-[12px]">Submit sheets &amp; view results</p>
+</div>
+</button>
+</div>
+</div>
+<div class="pt-8 flex justify-center">
+<p class="text-text-muted text-[12px]">
+                        Need help? <a class="text-primary hover:underline" href="#">Contact Support</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Content for visual consistency on smaller screens if needed -->
+<div class="fixed bottom-4 right-4 lg:hidden">
+<div class="bg-primary p-3 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-white">help</span>
+</div>
+</div>
+</body></html>

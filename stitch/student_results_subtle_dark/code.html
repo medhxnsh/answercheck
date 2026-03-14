@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0C0C0E",
+                        "surface": "#111113",
+                        "surface-border": "#242428",
+                        "success": "#4ADE80",
+                        "warning": "#FBBF24",
+                        "danger": "#F87171",
+                        "accent-blue": "#7B7BFF"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.grainy-bg {
+    background-color: #0C0C0E;
+    position: relative;
+}
+.grainy-bg::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.035;
+    filter: url(#noiseFilter);
+    z-index: 1;
+}
+.grainy-bg > * {
+    position: relative;
+    z-index: 2;
+}
+details > summary::-webkit-details-marker {
+    display: none
+}</style>
+</head>
+<body class="dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen grainy-bg"><svg class="hidden" xmlns="http://www.w3.org/2000/svg">
+<filter id="noiseFilter">
+<feturbulence basefrequency="0.65" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+</filter>
+</svg>
+<div class="max-w-[640px] mx-auto px-4 py-6">
+<!-- Top Navigation -->
+<header class="flex items-center gap-4 mb-8">
+<button class="flex items-center justify-center w-10 h-10 rounded-xl hover:bg-slate-200 dark:hover:bg-surface-border transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
+</button>
+<h1 class="text-[18px] font-bold">Results</h1>
+</header>
+<!-- Score Card -->
+<div class="bg-white dark:bg-surface border border-slate-200 dark:border-surface-border rounded-xl p-8 mb-8 flex items-center justify-between shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="text-[48px] font-bold leading-none mb-2">34 / 50</div>
+<div class="text-slate-600 dark:text-slate-400 font-medium">Physics Mid Term</div>
+<div class="text-slate-500 dark:text-slate-500 text-sm">October 24, 2023</div>
+</div>
+<div class="relative flex items-center justify-center">
+<svg class="w-24 h-24 transform -rotate-90">
+<circle class="text-slate-200 dark:text-surface-border" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-accent-blue" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="80.38" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-xl font-bold">68%</span>
+</div>
+</div>
+<!-- Question Breakdown Section -->
+<div class="space-y-4 mb-10">
+<h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4 px-1">Question breakdown</h2>
+<!-- Question 1: Partial (Warning) -->
+<details class="group bg-white dark:bg-surface border border-slate-200 dark:border-surface-border rounded-lg overflow-hidden border-l-4 border-l-warning" open="">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex flex-col gap-1 overflow-hidden pr-4">
+<span class="text-[13px] font-bold">Q1: Quantum Mechanics Basics</span>
+<span class="text-xs text-slate-500 truncate italic">"The observer effect refers to the changes that the act of observation will make..."</span>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<span class="text-[13px] font-bold text-warning">3 / 5</span>
+<span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</div>
+</summary>
+<div class="p-4 pt-0 border-t border-slate-100 dark:border-surface-border mt-2 space-y-4">
+<div>
+<p class="text-[11px] font-bold text-slate-500 uppercase mb-1">Your Answer</p>
+<div class="text-sm p-3 bg-slate-50 dark:bg-black/20 rounded-lg text-slate-700 dark:text-slate-300">
+                            The observer effect refers to the changes that the act of observation will make on a phenomenon being observed. This is often the result of instruments that, by necessity, alter the state of what they measure in some manner.
+                        </div>
+</div>
+<div>
+<p class="text-[11px] font-bold text-slate-500 uppercase mb-1">AI Justification</p>
+<p class="text-sm italic text-slate-600 dark:text-slate-400">
+                            Your explanation of the observer effect is accurate but fails to mention the specific mathematical relationship defined in the Heisenberg Uncertainty Principle as requested in the sub-prompt. Marks deducted for missing quantitative context.
+                        </p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="text-sm font-bold">Marks awarded: <span class="text-warning">3 / 5</span></div>
+<button class="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">flag</span> Flag for Review
+                        </button>
+</div>
+</div>
+</details>
+<!-- Question 2: Correct (Success) -->
+<details class="group bg-white dark:bg-surface border border-slate-200 dark:border-surface-border rounded-lg overflow-hidden border-l-4 border-l-success">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex flex-col gap-1 overflow-hidden pr-4">
+<span class="text-[13px] font-bold">Q2: Newtonian Forces</span>
+<span class="text-xs text-slate-500 truncate italic">"Every action has an equal and opposite reaction..."</span>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<span class="text-[13px] font-bold text-success">5 / 5</span>
+<span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</div>
+</summary>
+<div class="p-4 pt-0 border-t border-slate-100 dark:border-surface-border mt-2 space-y-4">
+<div class="text-sm text-slate-600 dark:text-slate-400">Content loading...</div>
+</div>
+</details>
+<!-- Question 3: Wrong (Danger) -->
+<details class="group bg-white dark:bg-surface border border-slate-200 dark:border-surface-border rounded-lg overflow-hidden border-l-4 border-l-danger">
+<summary class="flex items-center justify-between p-4 cursor-pointer list-none">
+<div class="flex flex-col gap-1 overflow-hidden pr-4">
+<span class="text-[13px] font-bold">Q3: Thermodynamics</span>
+<span class="text-xs text-slate-500 truncate italic">"Entropy always decreases in a closed system..."</span>
+</div>
+<div class="flex items-center gap-4 shrink-0">
+<span class="text-[13px] font-bold text-danger">1 / 5</span>
+<span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+</div>
+</summary>
+<div class="p-4 pt-0 border-t border-slate-100 dark:border-surface-border mt-2 space-y-4">
+<div class="text-sm text-slate-600 dark:text-slate-400">Content loading...</div>
+</div>
+</details>
+</div>
+<!-- Flag Form -->
+<div class="bg-white dark:bg-surface border border-slate-200 dark:border-surface-border rounded-xl p-6 shadow-lg">
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-danger">report</span> Flag Result
+            </h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
+                If you believe the AI grading was incorrect for Q1, please explain why. A human moderator will review your request.
+            </p>
+<div class="space-y-4">
+<textarea class="w-full bg-slate-50 dark:bg-background-dark border border-slate-200 dark:border-surface-border rounded-lg p-4 text-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Describe your concern in detail..." rows="4"></textarea>
+<div class="flex gap-3 justify-end">
+<button class="px-5 py-2.5 rounded-lg text-sm font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-surface-border transition-colors">
+                        Cancel
+                    </button>
+<button class="px-5 py-2.5 rounded-lg text-sm font-bold bg-primary text-white hover:opacity-90 transition-opacity">
+                        Submit Flag
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer Area -->
+<footer class="mt-12 text-center text-slate-500 text-xs pb-10">
+            © 2023 AnswerCheck AI Review System.
+        </footer>
+</div>
+</body></html>

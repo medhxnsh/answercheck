@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AnswerCheck — Teacher Review</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0c0c0e",
+                        "surface": "#111113",
+                        "border-dark": "#242428",
+                        "accent-dark": "#1a1a1d"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>.grain-bg {
+    background-color: #0c0c0e;
+    position: relative;
+}
+.grain-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    filter: url(#noiseFilter);
+    opacity: 0.035;
+    z-index: 0;
+}</style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen"><svg style="display: none;">
+<filter id="noiseFilter">
+<feturbulence basefrequency="0.65" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+</filter>
+</svg>
+<div class="flex flex-col h-screen overflow-hidden">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between px-6 py-3 border-b border-accent-dark bg-surface">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">school</span>
+<h1 class="text-xl font-bold tracking-tight dark:text-white">AnswerCheck</h1>
+</div>
+<div class="h-6 w-[1px] bg-border-dark"></div>
+<div class="flex flex-col">
+<h2 class="text-sm font-bold leading-tight">Arjun Mehta</h2>
+<p class="text-xs text-slate-400">Physics Mid Term • Grade 11-B</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center border border-accent-dark rounded-xl px-4 py-1.5 bg-background-dark/50">
+<span class="text-xl font-bold text-white">34 / 50</span>
+<span class="ml-2 text-sm font-medium text-primary">68%</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-xl text-sm font-bold transition-colors">
+                    Publish Results
+                </button>
+</div>
+</header>
+<!-- Main Layout -->
+<main class="flex flex-1 overflow-hidden">
+<!-- Left Panel: Question List -->
+<aside class="w-[240px] border-r border-accent-dark bg-surface flex flex-col overflow-y-auto">
+<div class="p-4 border-b border-accent-dark">
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Question Navigator</span>
+</div>
+<nav class="flex-1">
+<!-- Q1 (Selected) -->
+<div class="flex items-center justify-between px-4 py-3 bg-accent-dark border-l-4 border-primary cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-500 text-xl" data-icon="warning">warning</span>
+<span class="text-sm font-semibold">Q1 (3/5)</span>
+</div>
+</div>
+<!-- Q2 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-accent-dark/50 border-l-4 border-transparent cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-xl" data-icon="check_circle">check_circle</span>
+<span class="text-sm font-medium text-slate-400">Q2 (5/5)</span>
+</div>
+</div>
+<!-- Q3 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-accent-dark/50 border-l-4 border-transparent cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-red-500 text-xl" data-icon="flag">flag</span>
+<span class="text-sm font-medium text-slate-400">Q3 (2/5)</span>
+</div>
+</div>
+<!-- Q4 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-accent-dark/50 border-l-4 border-transparent cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-xl" data-icon="check_circle">check_circle</span>
+<span class="text-sm font-medium text-slate-400">Q4 (4/5)</span>
+</div>
+</div>
+<!-- Q5 -->
+<div class="flex items-center justify-between px-4 py-3 hover:bg-accent-dark/50 border-l-4 border-transparent cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-600 text-xl" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+<span class="text-sm font-medium text-slate-400">Q5 (0/5)</span>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Right Panel: Card Stack -->
+<section class="flex-1 bg-background-dark grain-bg overflow-y-auto p-8 relative">
+<div class="max-w-3xl mx-auto space-y-6 relative z-10">
+<!-- 1. EXTRACTED TEXT -->
+<div class="bg-surface rounded-xl border border-border-dark p-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-400">Extracted Text (OCR)</h3>
+<button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm">edit</span>
+                                Edit extraction
+                            </button>
+</div>
+<div class="bg-background-dark border border-border-dark rounded-lg p-4 font-mono text-sm leading-relaxed text-slate-300">
+                            The kinetic energy of the system remains constant throughout the collision. 
+                            However, the momentum P = m * v is conserved only in an elastic environment. 
+                            For this experiment, the velocity (v) was 12.5 m/s. 
+                            Thus, K = 1/2 * m * v^2 = 0.5 * 2.0 * (12.5)^2 = 156.25 J.
+                        </div>
+</div>
+<!-- 2. AI EVALUATION -->
+<div class="bg-surface rounded-xl border border-border-dark p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-1">AI Evaluation</h3>
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold">3.0</span>
+<span class="text-slate-500">out of 5.0</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="bg-green-500/10 text-green-500 text-[10px] font-bold px-2 py-0.5 rounded-full border border-green-500/20">82% CONFIDENT</span>
+<div class="w-32 h-1.5 bg-accent-dark rounded-full overflow-hidden mt-1">
+<div class="bg-green-500 h-full w-[82%]"></div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-primary/5 border-l-2 border-primary rounded-r-lg">
+<p class="text-sm text-slate-300 leading-relaxed italic">
+                                    "The student correctly identified the kinetic energy formula and provided the calculation. However, the conceptual explanation of momentum conservation was partially incorrect for an inelastic scenario."
+                                </p>
+</div>
+</div>
+</div>
+<!-- 3. OVERRIDE -->
+<div class="bg-surface rounded-xl border border-border-dark overflow-hidden">
+<!-- Dispute Banner -->
+<div class="bg-[#2a1010] border-b border-red-900/50 px-6 py-3 flex items-center gap-3">
+<span class="material-symbols-outlined text-red-500">error</span>
+<span class="text-sm font-medium text-red-200">Disputed: Incorrect OCR for symbol (m vs M)</span>
+</div>
+<div class="p-6">
+<h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4">Teacher Override</h3>
+<div class="grid grid-cols-4 gap-6">
+<div class="col-span-1">
+<label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Manual Mark</label>
+<input class="w-full bg-background-dark border border-border-dark rounded-lg px-4 py-2.5 text-white focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-bold" placeholder="4.5" type="text"/>
+</div>
+<div class="col-span-3">
+<label class="block text-xs font-bold text-slate-500 mb-2 uppercase">Reason for Override</label>
+<textarea class="w-full bg-background-dark border border-border-dark rounded-lg px-4 py-2 text-sm text-slate-300 focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all h-24 resize-none" placeholder="Corrected OCR mistake; student used 'm' instead of 'M' but the physics logic holds."></textarea>
+</div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-primary text-white px-8 py-2.5 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                                    Save Override
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>
